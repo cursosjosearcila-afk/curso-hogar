@@ -11,7 +11,7 @@
         .logo { color: var(--primary); font-weight: bold; font-size: 1.4rem; margin:0; }
         .hero { background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; padding: 40px 10%; text-align: center; }
         
-        /* Contenedor Horizontal 16:9 */
+        /* Contenedor Horizontal 16:9 Corregido */
         .video-container { max-width: 700px; margin: 30px auto 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); background: black; border: 3px solid white; }
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
@@ -47,4 +47,71 @@
     
     <div class="video-container">
         <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/PWsdWCDDqs4?controls=1&rel=0" title="In
+            <iframe src="https://www.youtube.com/embed/PWsdWCDDqs4?controls=1&rel=0" title="Inversión que transforma vidas" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+</header>
+
+<div id="recursos" class="container">
+    <div class="grid">
+        <div class="card">
+            <h3>Material de Estudio</h3>
+            <a href="curriculum vitae.pdf" class="btn btn-primary" style="margin-bottom:10px">Descargar Guía PDF</a>
+            <a href="curriculum vitae.pptx" class="btn btn-primary">Descargar Presentación</a>
+        </div>
+        <div class="card">
+            <h3>Contenido Multimedia</h3>
+            <a href="https://www.youtube.com/@josearcila5928" target="_blank" class="btn btn-yt">Ver en YouTube</a>
+            <a href="https://drive.google.com/drive/folders/1ate8JKCx2tlZYVp8k44eaU0KlAfLomzR?usp=sharing" target="_blank" class="btn btn-drive">Descargar de Drive</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div style="max-width: 500px; margin: 0 auto; background: white; padding: 40px; border-radius: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
+        <div id="mensaje">¡Registro exitoso! Por favor revisa los métodos de pago.</div>
+        <h2 style="text-align:center">Inscripción</h2>
+        
+        <form action="https://script.google.com/macros/s/AKfycbzYzBWFldS2WbLQZGXfaoqV3WfHt8ABaZnDEmbPFYRRAO05CqJJmxUebbh2yknLqHLx/exec" method="POST" target="vacio" onsubmit="finalizar()">
+            <input type="text" name="nombre" placeholder="Nombre" required>
+            <input type="text" name="apellido" placeholder="Apellido" required>
+            <input type="email" name="email" placeholder="Correo electrónico" required>
+            <input type="text" name="ciudad" placeholder="Ciudad y País" required>
+            <button type="submit" class="btn btn-primary" id="btnEnviar">Confirmar Registro</button>
+        </form>
+        <iframe name="vacio" style="display:none;"></iframe>
+    </div>
+</div>
+
+<div id="pagos" class="container" style="background: #f0f4ff; border-radius: 50px 50px 0 0;">
+    <h2 style="text-align:center; margin-bottom:40px;">Opciones de Pago</h2>
+    <div class="grid">
+        <div class="card">
+            <span style="font-weight:bold; color:var(--primary);">🇻🇪 Pago Móvil</span><br><br>
+            BBVA Provincial<br>0424-3559975<br>V-22.285.130
+        </div>
+        <div class="card">
+            <span style="font-weight:bold; color:var(--primary);">💵 Zelle</span><br><br>
+            cursosjosearcila@gmail.com
+        </div>
+        <div class="card">
+            <span style="font-weight:bold; color:var(--primary);">🔶 Binance</span><br><br>
+            ID: 123456789
+        </div>
+    </div>
+    <div style="text-align:center; margin-top:40px;">
+        <a href="https://chat.whatsapp.com/Dra3VfTlkXFBSKDDQDOGgU?mode=hqctcli" class="btn btn-wp" target="_blank">Enviar Comprobante por WhatsApp</a>
+    </div>
+</div>
+
+<script>
+    function finalizar() {
+        document.getElementById('mensaje').style.display = 'block';
+        document.getElementById('btnEnviar').innerText = "¡Enviado!";
+        document.getElementById('btnEnviar').style.background = "#25d366";
+        setTimeout(() => { window.location.hash = "pagos"; }, 2000);
+    }
+</script>
+
+</body>
+</html>
