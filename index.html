@@ -11,36 +11,58 @@
         .logo { color: var(--primary); font-weight: bold; font-size: 1.4rem; margin:0; }
         .hero { background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; padding: 40px 10%; text-align: center; }
         
-        /* Contenedor del video Horizontal Estilizado y Corto */
-        .video-container { max-width: 600px; /* Reducimos el ancho máximo */ margin: 30px auto 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); background: black; border: 3px solid white; }
+        /* Contenedor Horizontal Estilizado con Miniatura y Botón de Play */
+        .video-container { max-width: 600px; /* Ancho máximo reducido */ margin: 30px auto 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); background: black; border: 3px solid white; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .video-container:hover { transform: translateY(-3px) scale(1.01); box-shadow: 0 15px 40px rgba(0,0,0,0.4); }
         
-        /* Proporción de aspecto corregida para ser más baja */
+        /* Proporción de aspecto corregida para ser más baja y con miniatura automática */
         .video-wrapper { 
             position: relative; 
-            padding-bottom: 35%; /* TRUCO: Reducimos de 56.25% (16:9) a 35% para que sea más corto */
+            padding-bottom: 35%; /* Proporción más baja que 16:9 */ 
             height: 0; 
+            background: url('https://img.youtube.com/vi/PWsdWCDDqs4/maxresdefault.jpg') center/cover; /* Miniatura automática de YouTube */
+            cursor: pointer; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
         }
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        
+        /* Botón de Play Central Estilizado */
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .video-container:hover .play-button { background: rgba(255,255,255,1); transform: translate(-50%, -50%) scale(1.05); }
+        .play-triangle {
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 25px solid #ff0000;
+            margin-left: 5px;
+        }
         
         .container { padding: 40px 10%; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        
-        /* Efecto Hover en Tarjetas Mantenido */
-        .card { background: white; padding: 30px; border-radius: 20px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border: 1px solid #eee; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card { background: white; padding: 30px; border-radius: 20px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border: 1px solid #eee; transition: 0.3s ease; }
         .card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(67, 97, 238, 0.15); }
-        
-        .btn { border: none; padding: 15px 25px; border-radius: 12px; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block; width: 100%; box-sizing: border-box; text-align: center; transition: background 0.3s ease; }
+        .btn { border: none; padding: 15px 25px; border-radius: 12px; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block; width: 100%; box-sizing: border-box; text-align: center; }
         .btn-primary { background: var(--primary); color: white; }
         .btn-yt { background: #ff0000; color: white; margin-top: 10px; }
-        .btn-yt:hover { background: #cc0000; }
         .btn-drive { background: #1fa463; color: white; margin-top: 10px; }
-        .btn-drive:hover { background: #188651; }
         .btn-wp { background: var(--success); color: white; width: auto; padding: 15px 40px; margin-top: 20px; }
-        .btn-wp:hover { background: #1ebe57; }
-        
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: var(--success); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 1000; transition: transform 0.3s ease; }
-        .whatsapp-float:hover { transform: scale(1.1); }
-        
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: var(--success); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 1000; }
         input { width: 100%; padding: 14px; margin-bottom: 15px; border: 2px solid #edf2f7; border-radius: 12px; box-sizing: border-box; }
         #mensaje { display: none; background: #d4edda; color: #155724; padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: center; font-weight: bold; }
     </style>
@@ -62,9 +84,13 @@
     <p>Bienvenido al portal oficial de formación.</p>
     
     <div class="video-container">
-        <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/PWsdWCDDqs4?rel=0&controls=1&modestbranding=1" title="Inversión que transforma vidas" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+        <a href="https://www.youtube.com/watch?v=PWsdWCDDqs4" target="_blank" style="text-decoration: none;">
+            <div class="video-wrapper">
+                <div class="play-button">
+                    <div class="play-triangle"></div>
+                </div>
+            </div>
+        </a>
     </div>
 </header>
 
