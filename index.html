@@ -11,23 +11,20 @@
         .logo { color: var(--primary); font-weight: bold; font-size: 1.4rem; margin:0; }
         .hero { background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; padding: 40px 10%; text-align: center; }
         
-        /* Contenedor Horizontal Estilizado con Miniatura y Botón de Play */
-        .video-container { max-width: 600px; /* Ancho máximo reducido */ margin: 30px auto 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); background: black; border: 3px solid white; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .video-container:hover { transform: translateY(-3px) scale(1.01); box-shadow: 0 15px 40px rgba(0,0,0,0.4); }
-        
-        /* Proporción de aspecto corregida para ser más baja y con miniatura automática */
+        /* Contenedor Horizontal con Miniatura de Video */
+        .video-container { max-width: 600px; margin: 30px auto 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); background: black; border: 3px solid white; transition: transform 0.3s ease; }
+        .video-container:hover { transform: scale(1.02); }
         .video-wrapper { 
             position: relative; 
-            padding-bottom: 35%; /* Proporción más baja que 16:9 */ 
+            padding-bottom: 35%; 
             height: 0; 
-            background: url('https://img.youtube.com/vi/PWsdWCDDqs4/maxresdefault.jpg') center/cover; /* Miniatura automática de YouTube */
+            background: url('https://img.youtube.com/vi/PWsdWCDDqs4/maxresdefault.jpg') center/cover; 
             cursor: pointer; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
         }
         
-        /* Botón de Play Central Estilizado */
         .play-button {
             position: absolute;
             top: 50%;
@@ -40,10 +37,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 20px rgba(0,0,0,0.4);
-            transition: background 0.3s ease, transform 0.3s ease;
         }
-        .video-container:hover .play-button { background: rgba(255,255,255,1); transform: translate(-50%, -50%) scale(1.05); }
         .play-triangle {
             width: 0;
             height: 0;
@@ -57,12 +51,15 @@
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         .card { background: white; padding: 30px; border-radius: 20px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border: 1px solid #eee; transition: 0.3s ease; }
         .card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(67, 97, 238, 0.15); }
+        
         .btn { border: none; padding: 15px 25px; border-radius: 12px; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block; width: 100%; box-sizing: border-box; text-align: center; }
         .btn-primary { background: var(--primary); color: white; }
         .btn-yt { background: #ff0000; color: white; margin-top: 10px; }
         .btn-drive { background: #1fa463; color: white; margin-top: 10px; }
         .btn-wp { background: var(--success); color: white; width: auto; padding: 15px 40px; margin-top: 20px; }
+        
         .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: var(--success); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 1000; }
+        
         input { width: 100%; padding: 14px; margin-bottom: 15px; border: 2px solid #edf2f7; border-radius: 12px; box-sizing: border-box; }
         #mensaje { display: none; background: #d4edda; color: #155724; padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: center; font-weight: bold; }
     </style>
@@ -98,8 +95,8 @@
     <div class="grid">
         <div class="card">
             <h3>Material de Estudio</h3>
-            <a href="curriculum vitae.pdf" class="btn btn-primary" style="margin-bottom:10px">Descargar Guía PDF</a>
-            <a href="curriculum vitae.pptx" class="btn btn-primary">Descargar Presentación</a>
+            <a href="guia-curso.pdf" class="btn btn-primary" style="margin-bottom:10px" download>Descargar Guía PDF</a>
+            <a href="presentacion-curso.pptx" class="btn btn-primary" download>Descargar Presentación</a>
         </div>
         <div class="card">
             <h3>Contenido Multimedia</h3>
