@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Aptitud como Bendición en el Hogar | Registro</title>
+    <style>
+        :root { --primary: #4361ee; --bg: #f8f9fc; --text: #2b2d42; --success: #25d366; --accent: #7209b7; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg); color: var(--text); scroll-behavior: smooth; }
+        nav { background: white; padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        .logo { color: var(--primary); font-weight: bold; font-size: 1.4rem; margin:0; }
+        .hero { background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; padding: 60px 10%; text-align: center; }
+        .container { padding: 40px 10%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card { background: white; padding: 30px; border-radius: 20px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #eee; }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(67, 97, 238, 0.15); }
+        .btn { border: none; padding: 15px 25px; border-radius: 12px; font-weight: bold; cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-block; width: 100%; box-sizing: border-box; text-align: center; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-yt { background: #ff0000; color: white; margin-top: 10px; }
+        .btn-drive { background: #1fa463; color: white; margin-top: 10px; }
+        .btn-wp { background: var(--success); color: white; width: auto; padding: 15px 40px; margin-top: 20px; }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: var(--success); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 1000; transition: 0.3s; }
+        input { width: 100%; padding: 14px; margin-bottom: 15px; border: 2px solid #edf2f7; border-radius: 12px; box-sizing: border-box; }
+        #mensaje { display: none; background: #d4edda; color: #155724; padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: center; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<a href="https://chat.whatsapp.com/Dra3VfTlkXFBSKDDQDOGgU?mode=hqctcli" class="whatsapp-float" target="_blank">WP</a>
+
+<nav>
+    <p class="logo">Aptitud & Hogar</p>
+    <div>
+        <a href="#recursos" style="text-decoration:none; color:inherit; font-weight:600; margin-left:15px;">Material</a>
+        <a href="#pagos" style="text-decoration:none; color:inherit; font-weight:600; margin-left:15px;">Pagos</a>
+    </div>
+</nav>
+
+<header class="hero">
+    <h1>La Aptitud como Bendición en el Hogar</h1>
+    <p>Bienvenido al portal oficial de formación.</p>
+</header>
+
+<div id="recursos" class="container">
+    <div class="grid">
+        <div class="card">
+            <h3>Material de Estudio</h3>
+            <a href="curriculum vitae.pdf" class="btn btn-primary" style="margin-bottom:10px">Descargar Guía PDF</a>
+            <a href="curriculum vitae.pptx" class="btn btn-primary">Descargar Presentación</a>
+        </div>
+        <div class="card">
+            <h3>Contenido Multimedia</h3>
+            <a href="https://www.youtube.com/@josearcila5928" target="_blank" class="btn btn-yt">Ver en YouTube</a>
+            <a href="https://drive.google.com/drive/folders/1ate8JKCx2tlZYVp8k44eaU0KlAfLomzR?usp=sharing" target="_blank" class="btn btn-drive">Descargar de Drive</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div style="max-width: 500px; margin: 0 auto; background: white; padding: 40px; border-radius: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
+        <div id="mensaje">¡Registro exitoso! Por favor revisa los métodos de pago.</div>
+        <h2 style="text-align:center">Inscripción</h2>
+        
+        <form action="https://script.google.com/macros/s/AKfycbx27T7PFBaL9RspXownVpoVMPvtyieBF4Gc5SmErR2LOrtN8yHPRAT70GVyhS4vZ_60/exec" method="POST" target="vacio" onsubmit="finalizar()">
+            <input type="text" name="nombre" placeholder="Nombre" required>
+            <input type="text" name="apellido" placeholder="Apellido" required>
+            <input type="email" name="email" placeholder="Correo electrónico" required>
+            <input type="text" name="ciudad" placeholder="Ciudad y País" required>
+            <button type="submit" class="btn btn-primary" id="btnEnviar">Confirmar Registro</button>
+        </form>
+        <iframe name="vacio" style="display:none;"></iframe>
+    </div>
+</div>
+
+<div id="pagos" class="container" style="background: #f0f4ff; border-radius: 50px 50px 0 0;">
+    <h2 style="text-align:center; margin-bottom:40px;">Opciones de Pago</h2>
+    <div class="grid">
+        <div class="card">
+            <span style="font-weight:bold; color:var(--primary);">🇻🇪 Pago Móvil</span><br><br>
+            BBVA Provincial<br>0424-3559975<br>V-22.285.130
+        </div>
+        <div class="card">
+            <span style="font-weight:bold; color:var(--primary);">💵 Zelle</span><br><br>
+            cursosjosearcila@gmail.com
+        </div>
+        <div class="card">
+            <span style="font-weight:bold; color:var(--primary);">🔶 Binance</span><br><br>
+            ID: 123456789
+        </div>
+    </div>
+    <div style="text-align:center; margin-top:40px;">
+        <a href="https://chat.whatsapp.com/Dra3VfTlkXFBSKDDQDOGgU?mode=hqctcli" class="btn btn-wp" target="_blank">Enviar Comprobante por WhatsApp</a>
+    </div>
+</div>
+
+<script>
+    function finalizar() {
+        document.getElementById('mensaje').style.display = 'block';
+        document.getElementById('btnEnviar').innerText = "¡Enviado!";
+        document.getElementById('btnEnviar').style.background = "#25d366";
+        setTimeout(() => { window.location.hash = "pagos"; }, 2000);
+    }
+</script>
+
+</body>
+</html>
